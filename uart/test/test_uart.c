@@ -16,3 +16,7 @@ void test_ConfigureUARTIO(void) {
 void test_ConfigureMode(void) {
 	TEST_ASSERT_EQUAL(1, Uart_ConfigureMode());
 }
+
+void test_ConfigureBaudRate(void) {
+	TEST_ASSERT_EQUAL(1, Uart_ConfigureBaudrate(115200));
+}
