@@ -22,3 +22,14 @@ uint8_t Uart_ConfigureBaudrate(uint32_t baudrate) {
 	BaudReg = baudrate;
 	return 1;
 }
+
+uint32_t Uart_TransmitString(uint8_t *string) {
+	uint32_t charCnt = 0;
+
+	while(*string != '\0') {
+		TxReg = *string++;
+		charCnt++;
+	}
+
+	return charCnt;
+}
