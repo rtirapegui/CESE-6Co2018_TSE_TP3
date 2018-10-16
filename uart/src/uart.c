@@ -7,7 +7,9 @@ static union UARTRegister {
 		uint8_t DATA_BITS_MODE:		 2;
 		uint8_t PARITY_BITS_MODE:	 2;
 		uint8_t STOP_BITS_MODE:		 2;
-		uint32_t RESERVED:			22;
+		uint8_t RESERVED_2:			 2;
+		uint8_t BAUDRATE_BITS:		 3;
+		uint32_t RESERVED:			17;
 	} bf;
 	uint32_t word;
 } *UARTReg;
@@ -26,5 +28,6 @@ uint8_t Uart_ConfigureMode(uint8_t dataBitsMode, uint8_t parityBitsMode, uint8_t
 }
 
 uint8_t Uart_ConfigureBaudRate(uint8_t baudrateBits) {
-
+	UARTReg->bf.BAUDRATE_BITS = baudrateBits;
+	return 1;
 }
