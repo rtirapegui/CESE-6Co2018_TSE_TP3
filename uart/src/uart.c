@@ -24,3 +24,7 @@ uint8_t Uart_ConfigureMode(uint8_t dataBitsMode, uint8_t parityBitsMode, uint8_t
 	UARTReg->bf.STOP_BITS_MODE = stopBitsMode;
 	return 1;
 }
+
+uint8_t Uart_ConfigureBaudRate(uint8_t baudrateBits) {
+
+}
