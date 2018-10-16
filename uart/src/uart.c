@@ -9,7 +9,8 @@ static union UARTRegister {
 		uint8_t STOP_BITS_MODE:		 2;
 		uint8_t RESERVED_2:			 2;
 		uint8_t BAUDRATE_BITS:		 3;
-		uint32_t RESERVED:			17;
+		uint8_t RESERVED_3:			 1;
+		uint16_t DATA_OUT:			16;
 	} bf;
 	uint32_t word;
 } *UARTReg;
@@ -33,5 +34,12 @@ uint8_t Uart_ConfigureBaudRate(uint8_t baudrateBits) {
 }
 
 uint32_t Uart_TransmitString(uint8_t *string) {
+	uint32_t charCnt = 0;
 
+	while(*string != '\0') {
+		UARTReg->bf.DATA_OUT = *string++;
+		charCnt++;
+	}
+
+	return charCnt;
 }
