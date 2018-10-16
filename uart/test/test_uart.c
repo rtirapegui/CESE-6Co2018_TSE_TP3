@@ -1,4 +1,5 @@
 #include "unity.h"
+#include "uart.h"
 
 void setUP(void) {
 
