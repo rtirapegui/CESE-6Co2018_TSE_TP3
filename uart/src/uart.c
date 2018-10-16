@@ -31,3 +31,7 @@ uint8_t Uart_ConfigureBaudRate(uint8_t baudrateBits) {
 	UARTReg->bf.BAUDRATE_BITS = baudrateBits;
 	return 1;
 }
+
+uint32_t Uart_TransmitString(uint8_t *string) {
+
+}
